@@ -118,14 +118,14 @@ class TestSample(TestCase):
         }
         self.assertEqual(self.sample.to_dict(), expected_dict)
         category = OntologyAnnotation(term='test_category', id_="#characteristics/0")
-        unit = OntologyAnnotation(term='test_unit', id_="#unit/0")
+        unit = OntologyAnnotation(term='test_unit', id_="#ontology_annotation/0")
         characteristic = Characteristic(category=category, unit=unit)
         self.sample.characteristics = [characteristic]
         expected_dict['characteristics'] = [
             {
                 'category': {'@id': '#characteristics/0'},
                 'value': None,
-                'unit': {'@id': '#unit/0'},
+                'unit': {'@id': '#ontology_annotation/0'},
                 'comments': []
             }
         ]
@@ -133,7 +133,7 @@ class TestSample(TestCase):
 
         first_factor_value = FactorValue(factor_name=StudyFactor(name='test_factor_name', id_="#factor/0"),
                                          value=OntologyAnnotation(term='test_value', id_="#factor_value/0"),
-                                         unit=OntologyAnnotation(term='test_unit', id_="#unit/0"))
+                                         unit=OntologyAnnotation(term='test_unit', id_="#ontology_annotation/0"))
         second_factor_value = FactorValue(factor_name=StudyFactor(name='factor_name1', id_="#factor/1"),
                                           unit="unit1")
         self.sample.factor_values = [first_factor_value, second_factor_value]
@@ -146,12 +146,12 @@ class TestSample(TestCase):
                     'termSource': '',
                     'termAccession': '',
                     'comments': []},
-                'unit': {'@id': '#unit/0'}
+                'unit': {'@id': '#ontology_annotation/0'}
             },
             {
                 'category': {'@id': '#factor/1'},
                 'value': '',
-                'unit': {'@id': '#unit/' + mock_uuid.return_value}
+                'unit': {'@id': '#ontology_annotation/' + mock_uuid.return_value}
             }
         ]
         self.assertEqual(self.sample.to_dict(), expected_dict)
