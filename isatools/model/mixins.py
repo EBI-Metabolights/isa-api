@@ -186,11 +186,11 @@ class StudyAssayMixin(metaclass=ABCMeta):
             'samples': [],
             'other_material': []
         }
-        if not (sources is None):
+        if sources is not None:
             self.__materials['sources'] = sources
-        if not (samples is None):
+        if samples is not None:
             self.__materials['samples'] = samples
-        if not (other_material is None):
+        if other_material is not None:
             self.__materials['other_material'] = other_material
 
         self.__units = []

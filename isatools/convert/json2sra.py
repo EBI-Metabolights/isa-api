@@ -30,7 +30,7 @@ def convert(json_fp, path, config_dir=None, sra_settings=None,
     log.info("Loading isajson {}".format(json_fp.name))
     isa = isajson.load(fp=json_fp)
     log.info("Exporting SRA to {}".format(path))
-    log.debug("Using SRA settings ".format(sra_settings))
+    log.debug("Using SRA settings {}".format(sra_settings))
     sra.export(isa, path, sra_settings=sra_settings,
                datafilehashes=datafilehashes)
 

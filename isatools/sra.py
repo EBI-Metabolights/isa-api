@@ -181,7 +181,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                         do_export = export.lower() != 'no'
                     else:
                         log.debug('NO EXPORT COMMENT FOUND')
-                    log.debug('Perform export? '.format(str(do_export)))
+                    log.debug('Perform export? {}'.format(str(do_export)))
                     if do_export:
                         sample = None
                         curr_process = assay_seq_process
@@ -304,7 +304,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                                                          'UNSPECIFIED']:
                                 log.warning(
                                     'ERROR:value supplied is not compatible '
-                                    'with SRA1.5 schema '.format(
+                                    'with SRA1.5 schema {}'.format(
                                         library_selection))
                                 library_selection = 'unspecified'
 
@@ -349,7 +349,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                                     assay_to_export['library construction'],
                                     'nucl_acid_amp')
 
-                            protocol = '\n protocol_description: '.format(
+                            protocol = '\n protocol_description: {}'.format(
                                 assay_to_export['library construction']
                                 .executes_protocol.description)
                             mid_pv = get_pv(
@@ -364,7 +364,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                             url = get_pv(
                                 assay_to_export['library construction'], 'url')
                             if url is not None:
-                                protocol += '\n url: '.format(
+                                protocol += '\n url: {}'.format(
                                     nucl_acid_amp.value)
                             target_taxon = assay_to_export['target_taxon']
                             if target_taxon is not None:
@@ -411,7 +411,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                                     'WGS', 'OTHER']:
                                 log.warning(
                                     'ERROR:value supplied is not compatible '
-                                    'with SRA1.5 schema '.format(
+                                    'with SRA1.5 schema {}'.format(
                                         library_strategy))
                                 library_strategy = 'OTHER'
 
@@ -422,7 +422,7 @@ def export(investigation, export_path, sra_settings=None, datafilehashes=None):
                                     ['RANDOM', 'UNSPECIFIED']:
                                 log.warning(
                                     'ERROR:value supplied is not compatible '
-                                    'with SRA1.5 schema '.format(
+                                    'with SRA1.5 schema {}'.format(
                                         library_selection))
                                 library_selection = 'unspecified'
 

@@ -211,7 +211,7 @@ def _build_protocols_section_df(protocols: list = None):
             if isinstance(parameter.parameter_name, OntologyAnnotation):
                 if parameter.parameter_name.term_source:
                     this_param_source = parameter.parameter_name.term_source
-                    if type(parameter.parameter_name.term_source) != str:
+                    if not isinstance(parameter.parameter_name.term_source, str):
                         this_param_source = parameter.parameter_name.term_source.name
                     parameters_source_refs += this_param_source + ';'
                 else:
@@ -298,7 +298,7 @@ def _build_assays_section_df(assays: list = None):
         sources = []
         for source_string in term_sources:
             source = getattr(assay, source_string)
-            if (type(source.term_source) == str) or source.term_source is None:
+            if  isinstance(source.term_source, str) or source.term_source is None:
                 sources.append(source.term_source)
             else:
                 sources.append(source.term_source.name)

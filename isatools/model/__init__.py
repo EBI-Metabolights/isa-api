@@ -34,7 +34,7 @@ from isatools.model.factor_value import FactorValue, StudyFactor
 from isatools.model.investigation import Investigation
 from isatools.model.logger import log
 from isatools.model.material import Material, Extract, LabeledExtract
-from isatools.model.mixins import MetadataMixin, StudyAssayMixin, _build_assay_graph
+from isatools.model.mixins import MetadataMixin, StudyAssayMixin
 from isatools.model.ontology_annotation import OntologyAnnotation
 from isatools.model.ontology_source import OntologySource
 from isatools.model.parameter_value import ParameterValue

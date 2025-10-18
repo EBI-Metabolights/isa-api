@@ -75,7 +75,7 @@ class OntologyAnnotation(Commentable, Identifiable):
                 ).format(ontology_annotation=self, term_source=repr(self.term_source))
 
     def __str__(self):
-        if not self.term_source == str and isinstance(self.term_source, OntologySource):
+        if not isinstance(self.term_source, str) and isinstance(self.term_source, OntologySource):
             return ("OntologyAnnotation(\n\t"
                     "term={ontology_annotation.term}\n\t"
                     "term_source={term_source_ref}\n\t"

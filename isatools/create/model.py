@@ -637,7 +637,7 @@ class StudyCellDecoder(object):
                 return Treatment(element_type=element_struct["type"], factor_values=factor_values)
             else:
                 duration_unit = OntologyAnnotation(**element_struct["factorValues"][0]["unit"]) \
-                    if type(element_struct["factorValues"][0]["unit"]) == dict \
+                    if isinstance(element_struct["factorValues"][0]["unit"], dict) \
                     else element_struct["factorValues"][0]["unit"]
                 return NonTreatment(element_type=element_struct["type"],
                                     duration_value=element_struct["factorValues"][0]["value"],
@@ -2665,7 +2665,7 @@ class QualityControlService(object):
                             index = qc_study.assays.index(assay_to_expand)
                             samples_in_assay_to_expand = {
                                 sample for process in assay_to_expand.process_sequence
-                                for sample in process.inputs if type(sample) == Sample
+                                for sample in process.inputs if isinstance(sample, Sample)
                             }
                             log.debug('Number of input samples for assay {0} are {1}'.format(
                                 assay_filename, len(samples_in_assay_to_expand)
@@ -3026,7 +3026,7 @@ class StudyDesignFactory(object):
                                           elements=[follow_up_map[0]]),
                                 follow_up_map[1]])
 
-            group_size = group_sizes if type(group_sizes) == int else group_sizes[i]
+            group_size = group_sizes if isinstance(group_sizes, int)  else group_sizes[i]
             arm = StudyArm('ARM_{0}'.format(str(i).zfill(2)), group_size=group_size, arm_map=OrderedDict(arm_map))
             design.add_study_arm(arm)
         return design
@@ -3079,7 +3079,7 @@ class StudyDesignFactory(object):
             if follow_up_map:
                 arm_map.append([StudyCell('ARM_{0}_CELL_{1}'.format(str(i).zfill(2), str(counter).zfill(2)),
                                           elements=[follow_up_map[0]]), follow_up_map[1]])
-            group_size = group_sizes if type(group_sizes) == int else group_sizes[i]
+            group_size = group_sizes if isinstance(group_sizes, int) else group_sizes[i]
             arm = StudyArm('ARM_{0}'.format(str(i).zfill(2)), group_size=group_size, arm_map=OrderedDict(arm_map))
             design.add_study_arm(arm)
         return design
@@ -3232,7 +3232,7 @@ class StudyDesignFactory(object):
             if follow_up_map:
                 arm_map.append([StudyCell('ARM_{0}_CELL_{1}'.format(str(i).zfill(2), str(counter).zfill(2)),
                                           elements=[follow_up_map[0]]), follow_up_map[1]])
-            group_size = group_sizes if type(group_sizes) == int else group_sizes[i]
+            group_size = group_sizes if isinstance(group_sizes, int) else group_sizes[i]
             arm = StudyArm('ARM_{0}'.format(str(i).zfill(2)), group_size=group_size, arm_map=OrderedDict(arm_map))
             design.add_study_arm(arm)
         return design

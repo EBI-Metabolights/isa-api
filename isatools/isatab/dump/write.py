@@ -559,7 +559,7 @@ def write_value_columns(df_dict, label, x):
             df_dict[label + ".Unit"][-1] = x.unit.term
             df_dict[label + ".Unit.Term Source REF"][-1] = ""
             if x.unit.term_source:
-                if type(x.unit.term_source) == str:
+                if  isinstance(x.unit.term_source, str):
                     df_dict[label + ".Unit.Term Source REF"][-1] = x.unit.term_source
                 elif x.unit.term_source.name:
                     df_dict[label + ".Unit.Term Source REF"][-1] = x.unit.term_source.name
@@ -573,7 +573,7 @@ def write_value_columns(df_dict, label, x):
         df_dict[label][-1] = x.value.term
         df_dict[label + ".Term Source REF"][-1] = ""
         if x.value.term_source:
-            if type(x.value.term_source) == str:
+            if isinstance(x.value.term_source, str):
                 df_dict[label + ".Term Source REF"][-1] = x.value.term_source
             elif x.value.term_source.name:
                 df_dict[label + ".Term Source REF"][-1] = x.value.term_source.name

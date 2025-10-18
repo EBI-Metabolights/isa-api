@@ -479,14 +479,14 @@ class StudyAssayParser:
                         elif qualifier_header == "Performer":
                             process_node.performer = line[qualifier_index]
 
-                    if not (input_node_indices in process_node.inputs):
+                    if input_node_indices not in process_node.inputs:
                         in_first = set(process_node.inputs)
                         in_second = set(input_node_indices)
                         in_second_but_not_in_first = in_second - in_first
                         process_node.inputs = \
                             process_node.inputs + list(
                                 in_second_but_not_in_first)
-                    if not (output_node_indices in process_node.outputs):
+                    if output_node_indices not in process_node.outputs:
                         in_first = set(process_node.outputs)
                         in_second = set(output_node_indices)
                         in_second_but_not_in_first = in_second - in_first

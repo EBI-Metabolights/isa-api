@@ -50,7 +50,7 @@ get_content_url = urljoin(GITHUB_API_URL, '')
 
 
 @given('an optional user login "{test_user}"')
-def step_impl(context, test_user):
+def step_impl_01(context, test_user):
     """
     :type test_user: str
     :type context: behave.runner.Context
@@ -59,7 +59,7 @@ def step_impl(context, test_user):
 
 
 @step('an optional user password "{test_password}"')
-def step_impl(context, test_password):
+def step_impl_02(context, test_password):
     """
     :type test_password: str
     :type context: behave.runner.Context
@@ -69,7 +69,7 @@ def step_impl(context, test_password):
 
 @when("a storage adapter is created")
 @httpretty.activate
-def step_impl(context):
+def step_impl_03(context):
     """
     :type context: behave.runner.Context
     """
@@ -83,7 +83,7 @@ def step_impl(context):
 
 
 @then("it should instantiate an authenticated connector instance")
-def step_impl(context):
+def step_impl_04(context):
     """
     :type context: behave.runner.Context
     """
@@ -93,7 +93,7 @@ def step_impl(context):
 
 @given("an authenticated storage adapter")
 @httpretty.activate
-def step_impl(context):
+def step_impl_05(context):
     """
     :type context: behave.runner.Context
     """
@@ -108,7 +108,7 @@ def step_impl(context):
 
 
 @step('a file object named "{remote_source}" in the remote repository "{repo_name}" owned by "{owner_name}"')
-def step_impl(context, remote_source, repo_name, owner_name):
+def step_impl_06(context, remote_source, repo_name, owner_name):
     """
     :type owner_name: str
     :type repo_name: str
@@ -121,7 +121,7 @@ def step_impl(context, remote_source, repo_name, owner_name):
 
 
 @step('a branch named "{branch_name}"')
-def step_impl(context, branch_name):
+def step_impl_07(context, branch_name):
     """
     :type branch_name: str
     :type context: behave.runner.Context
@@ -130,7 +130,7 @@ def step_impl(context, branch_name):
 
 
 @step('a destination directory "{destination_dir}" in your home folder')
-def step_impl(context, destination_dir):
+def step_impl_08(context, destination_dir):
     """
     :type destination_dir: str
     :type context: behave.runner.Context
@@ -143,7 +143,7 @@ def step_impl(context, destination_dir):
 
 @when("the file object is a directory")
 @httpretty.activate
-def step_impl(context):
+def step_impl_09(context):
     """
     :type context: behave.runner.Context
     """
@@ -169,7 +169,7 @@ def step_impl(context):
 
 
 @then("it should download the files contained within the directory")
-def step_impl(context):
+def step_impl_10(context):
     """
     :type context: behave.runner.Context
     """
@@ -197,7 +197,7 @@ def step_impl(context):
 
 @when("the file object is a ZIP archive")
 @httpretty.activate
-def step_impl(context):
+def step_impl_11(context):
     """
     :type context: behave.runner.Context
     """
@@ -234,7 +234,7 @@ def step_impl(context):
 
 
 @then("it should download it as it is")
-def step_impl(context):
+def step_impl_12(context):
     """
     :type context: behave.runner.Context
     """
@@ -249,7 +249,7 @@ def step_impl(context):
 
 @when("the source file points to an ISA-TAB JSON file")
 @httpretty.activate
-def step_impl(context):
+def step_impl_13(context):
     """
     :type context: behave.runner.Context
     """
@@ -288,7 +288,7 @@ def step_impl(context):
 
 
 @then("it should download it as a JSON file")
-def step_impl(context):
+def step_impl_14(context):
     """
     :type context: behave.runner.Context
     """
@@ -301,7 +301,7 @@ def step_impl(context):
 
 
 @step("it should return the JSON content as a dictionary")
-def step_impl(context):
+def step_impl_14_02(context):
     """
     :type context: behave.runner.Context
     """
@@ -311,7 +311,7 @@ def step_impl(context):
 
 @when("the source file points to an ISA-TAB XML configuration file")
 @httpretty.activate
-def step_impl(context):
+def step_impl_15(context):
     """
     :type context: behave.runner.Context
     """
@@ -351,7 +351,7 @@ def step_impl(context):
 
 
 @then("it should download it as an XML file")
-def step_impl(context):
+def step_impl_16(context):
     """
     :type context: behave.runner.Context
     """
@@ -370,7 +370,7 @@ def step_impl(context):
 
 
 @step("it should return it as an XML object")
-def step_impl(context):
+def step_impl_17(context):
     """
     :type context: behave.runner.Context
     """
@@ -380,7 +380,7 @@ def step_impl(context):
 
 @when("it is none of the allowed file types - JSON, XML, ZIP - nor a directory")
 @httpretty.activate
-def step_impl(context):
+def step_impl_18(context):
     """
     :type context: behave.runner.Context
     """
@@ -413,7 +413,7 @@ def step_impl(context):
 
 
 @then("it should not save the file")
-def step_impl(context):
+def step_impl_19(context):
     """
     :type context: behave.runner.Context
     """
@@ -422,7 +422,7 @@ def step_impl(context):
 
 
 @step("it should return a falsey value")
-def step_impl(context):
+def step_impl_20(context):
     """
     :type context: behave.runner.Context
     """
@@ -431,7 +431,7 @@ def step_impl(context):
 
 @when("the remote source does not exist")
 @httpretty.activate
-def step_impl(context):
+def step_impl_21(context):
     """
     :type context: behave.runner.Context
     """
@@ -452,7 +452,7 @@ def step_impl(context):
 
 @step("it should raise an error")
 @httpretty.activate
-def step_impl(context):
+def step_impl_22(context):
     """
     :type context: behave.runner.Context
     """

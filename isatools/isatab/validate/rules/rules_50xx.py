@@ -19,7 +19,7 @@ def check_study_groups(table, filename, study_group_size_in_comment):
     validator.add_info(message=msg, supplemental=spl, code=5001)
 
     if study_group_size_in_comment is not None and study_group_size_in_comment != num_study_groups:
-        msg = 'Reported study group size does not match table'.format(num_study_groups, filename)
+        msg = 'Reported study group size {} does not match table {}'.format(num_study_groups, filename)
         spl = 'Study group size reported as {} but found {} in {}'
         spl = spl.format(study_group_size_in_comment, num_study_groups, filename)
         log.warning(spl)

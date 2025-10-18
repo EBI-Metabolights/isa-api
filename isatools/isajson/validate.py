@@ -24,9 +24,9 @@ warnings = []
 info = []
 
 # REGEXES
-_RX_DOI = re.compile("(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![%'#? ])\\S)+)")
-_RX_PMID = re.compile("[0-9]{8}")
-_RX_PMCID = re.compile("PMC[0-9]{8}")
+_RX_DOI = re.compile(r"^10\.\d{4,9}/[a-zA-Z0-9()-._;()/:]+$")
+_RX_PMID = re.compile(r"[0-9]{8}")
+_RX_PMCID = re.compile(r"PMC[0-9]{8}")
 
 
 """Everything below here is for the validator"""
@@ -509,7 +509,7 @@ def check_pubmed_ids_format(isa_json):
 
     def check_pubmed_id(pubmed_id_str):
         if pubmed_id_str != "":
-            if (_RX_PMID.match(pubmed_id_str) is None) and (_RX_PMCID.match(pubmed_id_str) is None):
+            if not _RX_PMID.match(pubmed_id_str) and not _RX_PMCID.match(pubmed_id_str):
                 warnings.append({
                     "message": "PubMed ID is not valid format",
                     "supplemental": "Found PubMedID {}".format(pubmed_id_str),

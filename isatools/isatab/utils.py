@@ -152,7 +152,7 @@ def strip_comments(in_fp):
     for line in in_fp.readlines():
         log.debug('processing line: {}'.format(line))
         if line.lstrip().startswith('#'):
-            log.debug('stripping line:'.format(line))
+            log.debug('stripping line: {}'.format(line))
         elif len(line.strip()) > 0:
             out_fp.write(line)
     out_fp.seek(0)

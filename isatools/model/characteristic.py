@@ -97,7 +97,7 @@ class Characteristic(Commentable):
                 "value={value}\n\t"
                 "unit={unit}\n\t"
                 "comments={num_comments} Comment objects\n)"
-                ).format(characteristic=self,
+                ).format(
                          category=self.category.term if isinstance(self.category, OntologyAnnotation) else '',
                          value=value,
                          unit=unit,

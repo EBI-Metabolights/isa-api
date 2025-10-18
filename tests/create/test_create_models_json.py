@@ -54,7 +54,7 @@ def ordered(o):  # to enable comparison of JSONs with lists using ==
             log.debug('El is list, returning el[0]:{}'.format(el[0]))
             return handle_inner_lists(el[0])
         else:
-            log.debug('El is not list, returning el: '.format(el))
+            log.debug('El is not list, returning el: {}'.format(el))
             return el
 
     if isinstance(o, dict):
