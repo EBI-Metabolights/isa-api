@@ -91,7 +91,6 @@ dev = [
     "import-linter>=2.5.2",
     "ruff>=0.14.1",
     "pre-commit>=4.0.1,<5",
-
 ]
 
 
