@@ -1,29 +1,29 @@
 from os import path
 
-from pandas import DataFrame
 from numpy import nan
+from pandas import DataFrame
 
-from isatools.constants import SYNONYMS, HEADER
-from isatools.model import (
-    OntologyAnnotation,
-    Investigation,
-    Source,
-    Process,
-    Sample,
-    load_protocol_types_info,
-    DataFile,
-    Material,
-)
+from isatools.constants import HEADER, SYNONYMS
 from isatools.isatab.defaults import log
 from isatools.isatab.graph import _all_end_to_end_paths, _longest_path_and_attrs
-from isatools.model.utils import _build_paths_and_indexes
 from isatools.isatab.utils import (
-    get_comment_column,
-    get_pv_columns,
-    get_fv_columns,
     get_characteristic_columns,
+    get_comment_column,
+    get_fv_columns,
     get_object_column_map,
+    get_pv_columns,
 )
+from isatools.model import (
+    DataFile,
+    Investigation,
+    Material,
+    OntologyAnnotation,
+    Process,
+    Sample,
+    Source,
+    load_protocol_types_info,
+)
+from isatools.model.utils import _build_paths_and_indexes
 
 
 def flatten(current_list) -> list:

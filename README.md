@@ -109,8 +109,20 @@ uv run pre-commit
 # run package and module dependencies
 uv run lint-imports
 
+# list all possible linters. selected linters are defined in pyproject.toml
+uv run ruff linter
+
 # run lint tool
 uv run ruff check
+
+# check specific linter
+uv run ruff check --select I
+
+# check specific lint rule
+uv run ruff check --select F841
+
+# check imports and update imports order
+uv run ruff check --select I --fix
 
 # run format check
 uv run ruff format --check
