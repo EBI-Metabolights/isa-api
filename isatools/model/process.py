@@ -229,14 +229,28 @@ class Process(Commentable, ProcessSequenceNode, Identifiable):
     def to_dict(self, ld=False):
         parameter_values = []
         for param in self.parameter_values:
-            value = ''
-            if param.value:
-                value = param.value.to_dict(ld=ld) if isinstance(param.value, OntologyAnnotation) else param.value
+            value = ' '
+            #print("BEFORE:", param.value)
+            if param.value is not None or len(str(param.value))>0:
+                #print("AFTER:", param.value)
+                if isinstance(param.value, OntologyAnnotation):
+                    value = param.value.to_dict(ld=ld)
+                elif isinstance(param.value, (int, float)):
+                    value = param.value
+                elif isinstance(param.value, str):
+                    value = param.value
+                else:
+                    value = "N/A" #param.value
+            else: #if param.value in (None, ''):
+
+                value = -1
+            # print("HERE:", value)
             parameter_value = {
                 "category": {"@id": param.category.id} if param.category else '',
                 "value": value
             }
-            if param.unit:
+
+            if param.unit is not None:
                 parameter_value["unit"] = {"@id": param.unit.id}
             parameter_values.append(parameter_value)
         serialized = {

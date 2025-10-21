@@ -15,8 +15,10 @@ Example:
 
         $ from isatools import isatab2json
 """
-from __future__ import absolute_import
 
+from __future__ import absolute_import
+#
+from isatools.convert import (isatab2json)
 from isatools.convert import (
     isatab2cedar as isatab2cedar_module,
     isatab2json as isatab2json_module,
@@ -33,15 +35,24 @@ from isatools.convert import (
     sampletab2isatab as sampletab2isatab_module,
     sampletab2json as sampletab2json_module,
 )
+#
+#
 from isatools.net import (
     biocrates2isatab as biocrates2isatab_module,
     mtbls as mtbls_module,
     mw2isa as mw2isa_module,
     ols as ols_module,
     pubmed as pubmed_module,
-    sra2isatab as sra2isatab_module,
+    sra2isatab as sra2isatab_module
 )
 
+from isatools.utils import (
+    detect_graph_process_pooling as detect_graph_process_pooling_module
+)
+
+from isatools.utils import (
+    detect_graph_process_pooling as detect_graph_process_pooling_module
+)
 
 # isatools.convert packages
 isatab2cedar = isatab2cedar_module
@@ -66,3 +77,6 @@ mw2isa = mw2isa_module
 ols = ols_module
 pubmed = pubmed_module
 sra2isatab = sra2isatab_module
+
+# isatools.utils packages
+detect_graph_process_pooling = detect_graph_process_pooling_module
